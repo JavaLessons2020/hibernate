@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="model">
+    <class name="Student" table="student">
+        <id name="id" column="student_id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="name"/>
+        <property name="email" column="email"/>
+
+        <set name="skills" table="skill">
+            <key>
+                <column name="student_id" not-null="true"/>
+            </key>
+            <one-to-many class="Skill"/>
+        </set>
+    </class>
+
+    <!--        <many-to-one name="profession" column="profession_id" class="students.entity.Profession"/>-->
+    <!--        <bag name="applicantResultList" inverse="true" cascade="all-delete-orphan">-->
+    <!--            <key column="APPLICANT_ID"></key>-->
+    <!--            <one-to-many class="ApplicantResult"/>-->
+    <!--        </bag>-->
+
+
+</hibernate-mapping>
