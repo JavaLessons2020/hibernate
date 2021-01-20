@@ -8,7 +8,9 @@ public class Student {
     private String name;
     private String email;
 
-    Set<Skill> skills;
+    Set<Diplom> diploms;
+
+    Set<Skill>skills;
 
     public Set<Skill> getSkills() {
         return skills;
@@ -16,6 +18,14 @@ public class Student {
 
     public void setSkills(Set<Skill> skills) {
         this.skills = skills;
+    }
+
+    public Set<Diplom> getDiploms() {
+        return diploms;
+    }
+
+    public void setDiploms(Set<Diplom> diploms) {
+        this.diploms = diploms;
     }
 
     public Student() {

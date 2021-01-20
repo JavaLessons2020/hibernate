@@ -3,18 +3,14 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="model">
-    <class name="model.Skill" table="skill">
-        <id name="id" column="skill_id">
+    <class name="model.Diplom" table="diplom">
+        <id name="id" column="diplom_id">
             <generator class="native"/>
         </id>
         <property name="name" column="name"/>
 
-        <set name="students" table="student_skill">
-            <key column="skill_id"/>
-            <many-to-many column="student_id" class="Student"/>
-        </set>
-
-
-
+        <many-to-one name="student" class="Student">
+            <column name="student_id" not-null="true"/>
+        </many-to-one>
     </class>
 </hibernate-mapping>

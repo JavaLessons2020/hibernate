@@ -10,19 +10,19 @@
         <property name="name" column="name"/>
         <property name="email" column="email"/>
 
-        <set name="skills" table="skill">
+        <set name="diploms" table="diplom">
             <key>
                 <column name="student_id" not-null="true"/>
             </key>
-            <one-to-many class="Skill"/>
+            <one-to-many class="model.Diplom"/>
+        </set>
+
+
+        <set name="skills" table="student_skill">
+            <key column="student_id"/>
+            <many-to-many column="skill_id" class="Skill"/>
         </set>
     </class>
-
-    <!--        <many-to-one name="profession" column="profession_id" class="students.entity.Profession"/>-->
-    <!--        <bag name="applicantResultList" inverse="true" cascade="all-delete-orphan">-->
-    <!--            <key column="APPLICANT_ID"></key>-->
-    <!--            <one-to-many class="ApplicantResult"/>-->
-    <!--        </bag>-->
 
 
 </hibernate-mapping>
